@@ -12,12 +12,14 @@ public class JokeController {
 
     public JokeController(JokeService jokeService) {
         this.jokeService = jokeService;
+        System.out.println(jokeService.getJoke());
     }
 
-    @RequestMapping({"/",""})
-    public String showJoke(Model model){
+    @RequestMapping({"/", ""})
+    public String showJoke(Model model) {
 
         model.addAttribute("joke", jokeService.getJoke());
+
         return "index";
     }
 }
